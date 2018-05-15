@@ -8,6 +8,7 @@ import { Http, ResponseOptions,Headers,HttpModule,URLSearchParams } from '@angul
 import { HttpClientModule } from '@angular/common/http'; 
 import { AppComponent } from './app.component';
 import { HomeComponent } from '../app/page_module_1/home/home.component';
+import { ChentestComponent } from '../app/page_module_1/chen_test/home.component';
 
 import { AppRoutingModule } from '../router/router.module';
 
@@ -20,7 +21,7 @@ if (ENV === 'prod') {
 
 @NgModule({
     imports: [BrowserModule, FormsModule, SharkModule,HttpModule, AppRoutingModule,HttpClientModule],
-    declarations: [AppComponent, HomeComponent],
+    declarations: [AppComponent, HomeComponent,ChentestComponent],
     bootstrap: [AppComponent]
 }) 
 export class AppModule {

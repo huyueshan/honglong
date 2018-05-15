@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { RouteguardService } from '../router/router.service';
 import { ResolveService } from '../router/resole.service';
 import { HomeComponent } from '../app/page_module_1/home/home.component';
-
+import { ChentestComponent } from '../app/page_module_1/chen_test/home.component';
 
 // 定义常量 路由
 const appRoutes: Routes = [
@@ -17,6 +17,11 @@ const appRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
+		canActivate: [RouteguardService]
+    }, 
+    {
+        path: 'chen',
+        component: ChentestComponent,
 		canActivate: [RouteguardService]
     }, 
 	{
