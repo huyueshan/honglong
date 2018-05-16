@@ -8,9 +8,12 @@ import { Http, ResponseOptions,Headers,HttpModule,URLSearchParams } from '@angul
 import { HttpClientModule } from '@angular/common/http'; 
 import { AppComponent } from './app.component';
 import { HomeComponent } from '../app/page_module_1/home/home.component';
-import { ChentestComponent } from '../app/page_module_1/chen_test/home.component';
+import { ChentestComponent } from './page_module_1/chen_test/home.component';
+import { Chentest1Component } from './page_module_1/chen_test.1/home1.component';
+import { Chentest2Component } from './page_module_1/chen_test.2/home2.component';
 
 import { AppRoutingModule } from '../router/router.module';
+import { AuthService } from '../router/user.service';
 
 import { ApplicationRef } from '@angular/core';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
@@ -21,7 +24,8 @@ if (ENV === 'prod') {
 
 @NgModule({
     imports: [BrowserModule, FormsModule, SharkModule,HttpModule, AppRoutingModule,HttpClientModule],
-    declarations: [AppComponent, HomeComponent,ChentestComponent],
+    declarations: [AppComponent, HomeComponent,ChentestComponent,Chentest1Component,Chentest2Component],
+    providers:[AuthService],
     bootstrap: [AppComponent]
 }) 
 export class AppModule {

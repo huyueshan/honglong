@@ -6,6 +6,9 @@ import { RouteguardService } from '../router/router.service';
 import { ResolveService } from '../router/resole.service';
 import { HomeComponent } from '../app/page_module_1/home/home.component';
 import { ChentestComponent } from '../app/page_module_1/chen_test/home.component';
+import { Chentest1Component } from '../app/page_module_1/chen_test.1/home1.component';
+import { Chentest2Component } from '../app/page_module_1/chen_test.2/home2.component';
+
 
 // 定义常量 路由
 const appRoutes: Routes = [
@@ -22,6 +25,16 @@ const appRoutes: Routes = [
     {
         path: 'chen',
         component: ChentestComponent,
+		canActivate: [RouteguardService]
+    }, 
+    {
+        path: 'loading',
+        component: Chentest1Component,
+		canActivate: [RouteguardService]
+    }, 
+    {
+        path: 'noload',
+        component: Chentest2Component,
 		canActivate: [RouteguardService]
     }, 
 	{
