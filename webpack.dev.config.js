@@ -9,7 +9,7 @@ var publicPath = '';
 
 module.exports = {
     entry: {
-        bootstrap: [__dirname + '/src/bootstrap.ts', 'webpack-hot-middleware/client?reload=true'],
+        bootstrap: [__dirname + '/src/app/app.module.ts', 'webpack-hot-middleware/client?reload=true'],
         polyfill: ['zone.js/dist/zone', 'reflect-metadata'],
         thirdparty: ['jquery', 'flatpickr', 'echarts']
     },

@@ -3,15 +3,10 @@ import { Resolve, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } fro
 import { Router } from "@angular/router";
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { HomeComponent } from '../app/page_module_1/home/home.component';
 
 
 @Injectable()
-export class ResolveService implements Resolve<HomeComponent>{
+export class ResolveService {
 
-　　resolve(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): HomeComponent | Observable<HomeComponent> | Promise<HomeComponent>{
-　　　　console.log(new HomeComponent());
- 
-　　　　return new HomeComponent();
-　　}
+
 }

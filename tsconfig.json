@@ -14,6 +14,6 @@
         ]
     },
     "angularCompilerOptions": {
-        "entryModule": "./src/main/webapp/app/app.module#AppModule"
+        "entryModule": "./src/app/app.module#AppModule"
     }
 }

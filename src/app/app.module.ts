@@ -4,32 +4,32 @@ import { RouterModule, Routes, Router } from "@angular/router";
 import { SharkModule } from '@ntesmail/shark-angular2';
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { Http, ResponseOptions,Headers,HttpModule,URLSearchParams } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http'; 
-import { AppComponent } from './app.component';
-import { HomeComponent } from '../app/page_module_1/home/home.component';
-import { ChentestComponent } from './page_module_1/chen_test/home.component';
-import { Chentest1Component } from './page_module_1/chen_test.1/home1.component';
-import { Chentest2Component } from './page_module_1/chen_test.2/home2.component';
-
-import { AppRoutingModule } from '../router/router.module';
-import { AuthService } from '../router/user.service';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
 import { ApplicationRef } from '@angular/core';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import "../styles/scss/index.scss";
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from '../router/router.module';
+import { RouteguardService } from '../router/router.service';
+import { InterceptorService } from '../router/ljq.service';
+
 
 if (ENV === 'prod') {
     enableProdMode();
 }
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, SharkModule,HttpModule, AppRoutingModule,HttpClientModule],
-    declarations: [AppComponent, HomeComponent,ChentestComponent,Chentest1Component,Chentest2Component],
-    providers:[AuthService],
+    imports: [BrowserModule, FormsModule, SharkModule, AppRoutingModule,HttpClientModule],
+    declarations: [AppComponent],
+	providers: [
+		{provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true}
+	],
     bootstrap: [AppComponent]
 }) 
 export class AppModule {
-    constructor(public appRef: ApplicationRef,private http: Http,private router:Router) { 
+    constructor(public appRef: ApplicationRef,private router:Router) { 
 		
 	}
 	
@@ -49,3 +49,5 @@ export class AppModule {
 	//end
 }
 
+// 启动
+platformBrowserDynamic().bootstrapModule(AppModule); 
